@@ -114,18 +114,18 @@ function changeLanguage(lang) {
 }
 
 
-// Ajan listesi ve özellikleri (Bu kısımda değişiklik yok)
+// Ajan listesi ve özellikleri
 const agents = [
     // --- DUELISTS ---
     { name: "Jett", role: "Duelist", image: "images/jett.jpeg", scores: { aggressive: 5, stealth: 2, teamplay: 1, utility: 2 } },
     { name: "Reyna", role: "Duelist", image: "images/reyna.jpeg", scores: { aggressive: 5, stealth: 1, teamplay: 1, utility: 1 } },
     { name: "Phoenix", role: "Duelist", image: "images/phoenix.jpeg", scores: { aggressive: 4, stealth: 1, teamplay: 2, utility: 3 } },
     { name: "Raze", role: "Duelist", image: "images/raze.jpeg", scores: { aggressive: 5, stealth: 1, teamplay: 2, utility: 3 } },
-    { name: "Yoru", role: "Duelist", image: "images/yoru.jpeg", scores: { aggressive: 4, stealth: 5, teamplay: 1, utility: 3 } }, // En sinsi düellocu
+    { name: "Yoru", role: "Duelist", image: "images/yoru.jpeg", scores: { aggressive: 4, stealth: 5, teamplay: 1, utility: 3 } },
     { name: "Neon", role: "Duelist", image: "images/neon.jpeg", scores: { aggressive: 5, stealth: 1, teamplay: 2, utility: 2 } },
     { name: "Iso", role: "Duelist", image: "images/iso.jpeg", scores: { aggressive: 4, stealth: 1, teamplay: 3, utility: 2 } },
-    // Waylay: Hızlı, ışık manipülasyonu yapan bir düellocu. Giriş ve kaçış ustası.
     { name: "Waylay", role: "Duelist", image: "images/waylay.jpeg", scores: { aggressive: 5, stealth: 3, teamplay: 2, utility: 2 } },
+    { name: "Mirage", role: "Duelist", image: "images/mirage.jpeg", scores: { aggressive: 4, stealth: 4, teamplay: 2, utility: 4 } },
 
     // --- INITIATORS ---
     { name: "Sova", role: "Initiator", image: "images/sova.jpeg", scores: { aggressive: 2, stealth: 2, teamplay: 5, utility: 5 } },
@@ -134,32 +134,31 @@ const agents = [
     { name: "KAY/O", role: "Initiator", image: "images/kayo.jpeg", scores: { aggressive: 4, stealth: 1, teamplay: 5, utility: 4 } },
     { name: "Fade", role: "Initiator", image: "images/fade.jpeg", scores: { aggressive: 3, stealth: 4, teamplay: 4, utility: 5 } },
     { name: "Gekko", role: "Initiator", image: "images/gekko.jpeg", scores: { aggressive: 3, stealth: 2, teamplay: 4, utility: 5 } },
-    // Tejo: Kolombiyalı Initiator. "One-man army" tarzı, kendi işini görebilen, agresif info toplayıcı.
     { name: "Tejo", role: "Initiator", image: "images/tejo.jpeg", scores: { aggressive: 4, stealth: 3, teamplay: 3, utility: 5 } },
 
     // --- CONTROLLERS ---
     { name: "Omen", role: "Controller", image: "images/omen.jpeg", scores: { aggressive: 3, stealth: 5, teamplay: 3, utility: 4 } },
     { name: "Brimstone", role: "Controller", image: "images/brimstone.jpeg", scores: { aggressive: 2, stealth: 1, teamplay: 5, utility: 3 } },
-    { name: "Viper", role: "Control", image: "images/viper.jpeg", scores: { aggressive: 2, stealth: 3, teamplay: 4, utility: 5 } },
-    { name: "Astra", role: "Control", image: "images/astra.jpeg", scores: { aggressive: 1, stealth: 2, teamplay: 5, utility: 5 } },
-    { name: "Harbor", role: "Control", image: "images/harbor.jpeg", scores: { aggressive: 3, stealth: 1, teamplay: 4, utility: 3 } },
-    { name: "Clove", role: "Control", image: "images/clove.jpeg", scores: { aggressive: 4, stealth: 2, teamplay: 3, utility: 3 } }, // Ölse bile iş yapan agresif controller
+    { name: "Viper", role: "Controller", image: "images/viper.jpeg", scores: { aggressive: 2, stealth: 3, teamplay: 4, utility: 5 } },
+    { name: "Astra", role: "Controller", image: "images/astra.jpeg", scores: { aggressive: 1, stealth: 2, teamplay: 5, utility: 5 } },
+    { name: "Harbor", role: "Controller", image: "images/harbor.jpeg", scores: { aggressive: 3, stealth: 1, teamplay: 4, utility: 3 } },
+    { name: "Clove", role: "Controller", image: "images/clove.jpeg", scores: { aggressive: 4, stealth: 2, teamplay: 3, utility: 3 } },
 
     // --- SENTINELS ---
     { name: "Sage", role: "Sentinel", image: "images/sage.jpeg", scores: { aggressive: 1, stealth: 1, teamplay: 5, utility: 4 } },
     { name: "Cypher", role: "Sentinel", image: "images/cypher.jpeg", scores: { aggressive: 2, stealth: 5, teamplay: 3, utility: 5 } },
     { name: "Killjoy", role: "Sentinel", image: "images/killjoy.jpeg", scores: { aggressive: 1, stealth: 2, teamplay: 4, utility: 5 } },
-    { name: "Chamber", role: "Sentinel", image: "images/chamber.jpeg", scores: { aggressive: 5, stealth: 2, teamplay: 1, utility: 3 } }, // Agresif Sentinel
+    { name: "Chamber", role: "Sentinel", image: "images/chamber.jpeg", scores: { aggressive: 5, stealth: 2, teamplay: 1, utility: 3 } },
     { name: "Deadlock", role: "Sentinel", image: "images/deadlock.jpeg", scores: { aggressive: 2, stealth: 2, teamplay: 4, utility: 4 } },
     { name: "Vyse", role: "Sentinel", image: "images/vyse.jpeg", scores: { aggressive: 3, stealth: 3, teamplay: 4, utility: 4 } }
 ];
 
-// Soru eşleştirmeleri (Bu kısımda değişiklik yok)
+// Soru eşleştirmeleri - DÜZELTILDI
 const questionMapping = {
     "q1": { "agresif": "aggressive", "defansif": "stealth", "destek": "teamplay" },
     "q2": { "yetenek": "utility", "silah": "aggressive", "denge": "teamplay" },
-    "q3": { "kontrol": "teamplay", "giris": "aggressive", "info": "utility" },
-    "q4": { "kontrol": "aggressive", "giris": "stealth", "info": "teamplay" },
+    "q3": { "kontrol": "utility", "giris": "aggressive", "info": "teamplay" },
+    "q4": { "kontrol": "aggressive", "giris": "utility", "info": "teamplay" },
     "q5": { "kontrol": "stealth", "giris": "aggressive", "info": "utility" },
     "q6": { "kontrol": "utility", "giris": "aggressive", "info": "teamplay" }
 };
@@ -171,7 +170,7 @@ const resultDiv = document.getElementById('result');
 const agentResultsDiv = document.getElementById('agentResults');
 const progressBar = document.getElementById('progressBar');
 const nextButtons = document.querySelectorAll('.next-btn');
-const submitButton = document.getElementById('submitBtn'); // submitBtn id'sini kullandık
+const submitButton = document.getElementById('submitBtn');
 
 let currentQuestionIndex = 0;
 
@@ -199,7 +198,7 @@ function goToNextQuestion() {
     }
 }
 
-// Ajanları puanla ve sırala (Bu kısımda değişiklik yok)
+// Ajanları puanla ve sırala
 function scoreAgents(answers) {
     const scoredAgents = agents.map(agent => {
         let score = 0;
@@ -212,7 +211,7 @@ function scoreAgents(answers) {
     return scoredAgents.sort((a, b) => b.score - a.score).slice(0, 3);
 }
 
-// Sonuçları göster (Bu kısımda değişiklik yok)
+// Sonuçları göster
 function showResults() {
     const answers = {};
     
@@ -253,7 +252,7 @@ function restartQuiz() {
     resultDiv.classList.add('hidden');
     quizForm.style.display = 'block';
     updateProgressBar();
-    changeLanguage(currentLang); // Yeniden başlatırken mevcut dili uygula
+    changeLanguage(currentLang);
 }
 
 // Event Listeners
@@ -276,5 +275,5 @@ submitButton.addEventListener('click', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     questions[0].style.display = 'block';
     updateProgressBar();
-    changeLanguage('tr'); // Sayfa yüklendiğinde varsayılan olarak Türkçe başlat
+    changeLanguage('tr');
 });
