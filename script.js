@@ -13,19 +13,19 @@ const translations = {
         q2_opt3: "Dengeli",
 
         question3: "3. Harita kontrolü mü, giriş mi?",
-        q3_opt1: "Alan Kontrolü (Smoke)",  // "Harita kontrolü" yerine
-        q3_opt2: "Site'a Girmek (Entry)",   // "Giriş yapmayı severim" yerine
+        q3_opt1: "Alan Kontrolü (Smoke)",
+        q3_opt2: "Site'a Girmek (Entry)",
         q3_opt3: "Bilgi Toplamak (Info)",
 
         question4: "4. Ekibinizde hangi rolü üstlenirsiniz?",
-        q4_opt1: "Öncü (Fragger)",         // "Giriş" yerine
-        q4_opt2: "Stratejist (Smoke)",     // "Duman" yerine
-        q4_opt3: "Tamamlayıcı (Support)",  // "Destek" yerine
+        q4_opt1: "Öncü (Fragger)",
+        q4_opt2: "Stratejist (Smoke)",
+        q4_opt3: "Tamamlayıcı (Support)",
 
         question5: "5. Clutch (teke tek) durumlarında ne yaparsın?",
-        q5_opt1: "Lurk (Sinsi) oynarım",   // "Pusarım" yerine
-        q5_opt2: "Düelloya girerim",       // "Yüzleşirim" yerine
-        q5_opt3: "Zamana/Taktiksel oynarım", // "Kaçarım" yerine (Burası çok daha iyi oldu)
+        q5_opt1: "Lurk (Sinsi) oynarım",
+        q5_opt2: "Düelloya girerim",
+        q5_opt3: "Zamana/Taktiksel oynarım",
 
         question6: "6. Hangi silahı sıklıkla kullanırsınız?",
         q6_opt1: "Operatör",
@@ -98,7 +98,7 @@ function changeLanguage(lang) {
             const spanId = `q${i}_opt${j}`;
             const spanElement = document.getElementById(spanId);
             if (spanElement) {
-                spanElement.innerText = ' ' + translations[lang][spanId]; // Başına boşluk ekleyerek düzgün görünmesini sağlar
+                spanElement.innerText = ' ' + translations[lang][spanId];
             }
         }
     }
@@ -143,6 +143,7 @@ const agents = [
     { name: "Astra", role: "Controller", image: "images/astra.jpeg", scores: { aggressive: 1, stealth: 2, teamplay: 5, utility: 5 } },
     { name: "Harbor", role: "Controller", image: "images/harbor.jpeg", scores: { aggressive: 3, stealth: 1, teamplay: 4, utility: 3 } },
     { name: "Clove", role: "Controller", image: "images/clove.jpeg", scores: { aggressive: 4, stealth: 2, teamplay: 3, utility: 3 } },
+    { name: "Veto", role: "Controller", image: "images/veto.jpeg", scores: { aggressive: 2, stealth: 4, teamplay: 4, utility: 5 } },
 
     // --- SENTINELS ---
     { name: "Sage", role: "Sentinel", image: "images/sage.jpeg", scores: { aggressive: 1, stealth: 1, teamplay: 5, utility: 4 } },
@@ -153,7 +154,7 @@ const agents = [
     { name: "Vyse", role: "Sentinel", image: "images/vyse.jpeg", scores: { aggressive: 3, stealth: 3, teamplay: 4, utility: 4 } }
 ];
 
-// Soru eşleştirmeleri - DÜZELTILDI
+// Soru eşleştirmeleri
 const questionMapping = {
     "q1": { "agresif": "aggressive", "defansif": "stealth", "destek": "teamplay" },
     "q2": { "yetenek": "utility", "silah": "aggressive", "denge": "teamplay" },
